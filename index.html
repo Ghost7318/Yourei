@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+   <meta charset="UTF-8">
+   <title>ゆーれい</title>
+   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+   <body>
+
+        <div id="header-container"></div>
+
+        <main class="content-wrapper">
+
+         <section id="home">
+
+    <div class="video-container" style="text-align: center; border: 2px solid #60CDC7; padding: 20px; border-radius: 10px;">
+        <p>TKGのうた/ゆーれい【歌ってみた】</p>
+        <a href="https://www.youtube.com/watch?v=9jjRcrToLio" target="_blank" class="btn-sns">YouTubeで歌ってみたを聴く</a>
+    </div>
+
+        <ul>
+            <li>2021年6月1日に活動を開始した歌い手</li>
+            <li>UTAU音源、幽音ゆゆの中の人</li>
+            <li>明るく！元気に！前向きに！をモットーに活動</li>
+            <li>FA：#ゆーれいの出番</li>
+            </ul>
+
+            <div class="swiper mySwiper">
+               <div class="swiper-wrapper">
+                  <div class="swiper-slide"><img src="photo/photo3.jpeg"></div>
+                  <div class="swiper-slide"><img src="photo/photo4.jpeg"></div>
+                  <div class="swiper-slide"><img src="photo/photo5.jpeg"></div>
+                  <div class="swiper-slide"><img src="photo/photo6.jpeg"></div>
+               </div>
+
+               <div class="swiper-button-prev"></div>
+               <div class="swiper-button-next"></div>
+            </div>
+
+            <h3>ゆーれいが作った曲</h3>
+           <div class="music-player">
+           <h4>1.テト様が好きすぎて振られるという曲です。/幽音 ゆゆ</h4>
+           <audio src="music/1.mp3"controls controlsList="nodownload noremoteplayback"></audio>
+  
+         </div>
+
+            <div class="image-container">
+            <img src="photo/photo1.jpeg" class="fade-in-box" alt="私のイメージ画像" width="300">
+            <img src="photo/photo2.jpeg" class="fade-in-box" alt="私のイメージ画像2" width="300">
+         </div>
+
+            <div class="social-links">
+            <a href="http://www.youtube.com/@youreinodeban46" class="btn-sns" target="_blank">チャンネル登録よろしくね！</a>
+            </div>
+
+         <section class="link-section">
+            <h2>Link</h2>
+            <ul class="link-list">
+            <li><a href="https://x.com/yourei_osirase" class="btn-link" target="_blank">Twitter(X)</a></li>
+            <li><a href="http://www.youtube.com/@youreinodeban46" class="btn-link" target="_blank">YouTube</a></li>
+            <li><a href="https://www.nicovideo.jp/user/141011481" class="btn-link" target="_blank">ニコニコ</a></li>
+            <li><a href="https://twitcasting.tv/c:yourei3150" class="btn-link" target="_blank">ツイキャス</a></li>
+            <li><a href="https://youreinodeban46.booth.pm/" class="btn-link" target="_blank">BOOTH</a></li>
+            <li><a href="https://love-letter.club/to/yourei_osirase/" class="btn-link" target="_blank">ラブレター</a></li>
+            <li><a href="https://marshmallow-qa.com/n0f9rxwbcis9rrh?t=rQQdlh&utm_medium=url_text&utm_source=promotion" class="btn-link" target="_blank">マシュマロ</a></li>
+            </ul></section>
+
+      </main>
+
+      <script>
+        fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-container').innerHTML = data;
+        });
+
+        fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-container').innerHTML = data;
+        });
+      </script>
+
+      <div id="footer-container"></div>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            }
+        });
+    });
+
+    document.querySelectorAll('.fade-in-box').forEach((img) => {
+        observer.observe(img);
+    });
+</script>
+
+<script>
+    const swiper = new Swiper(".mySwiper",{
+      loop: true,
+      autoplay:{ delay: 3000},
+      navigation:{
+         nextEl: ".swiper-button-next",
+         prevEl: ".swiper-button-prev",
+      },
+    });
+</script>
+
+<a href="#" id="back-to-top">▲ TOP</a>
+
+<script>
+    const topBtn = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', () => {
+        if(window.scrollY > 300) {
+            topBtn.style.display = 'block';
+    } else {
+        topBtn.style.display = 'none';
+    }
+});
+</script>
+
+   </body>
+   </html>
